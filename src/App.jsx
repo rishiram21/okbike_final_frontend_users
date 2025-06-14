@@ -17,6 +17,9 @@ import RegistrationPage from "./pages/RegistrationPage";
 import InvoicePage from "./pages/InvoicePage";
 // import ProtectedRoute from "./components/ProtectedRoute";
 import NotFoundPage from "./pages/NotFoundPage";
+import TermsAndConditions from "./pages/TermsAndConditions";
+import AboutUs from "./pages/Aboutus";
+import Faq from "./pages/Faq";
 
 // Wrapper to conditionally render the Navbar
 const ConditionalNavbar = ({ children }) => {
@@ -72,6 +75,12 @@ const App = () => {
               <Route path="/login" element={<LoginPage />} />
               <Route path="/register" element={<RegistrationPage />} />
 
+              <Route path="/terms" element={<TermsAndConditions />} />
+              <Route path="/about" element={<AboutUs />} />
+              <Route path="/faq" element={<Faq />} />
+
+
+
               <Route path="/orders" element={<OrdersPage />} />
 
               <Route
@@ -80,6 +89,7 @@ const App = () => {
                     <InvoicePage />
                 }
               />
+
 
               <Route
                 path="/checkout"
