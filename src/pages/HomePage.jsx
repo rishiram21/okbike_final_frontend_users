@@ -7,6 +7,8 @@ import {
   FaCheck,
   FaMapMarkerAlt,
   FaCreditCard,
+  FaInfoCircle,
+  FaTags
 } from "react-icons/fa";
 import { useGlobalState } from "../context/GlobalStateContext";
 import axios from "axios";
@@ -632,6 +634,94 @@ const HomePage = () => {
                 </div>
                 <p className="text-black font-medium text-base">{city.name}</p>
               </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+       {/* SEO Content Section */}
+      <div className="bg-white py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center">
+            <FaInfoCircle className="mx-auto h-12 w-12 text-orange-600" />
+            <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl mt-4">
+              Reliable Bike Rental in Koregaon Park, Pune
+            </h2>
+            <p className="mt-4 text-lg leading-6 text-gray-500">
+              Welcome to OK Bike Rental – your trusted choice for bike rentals in Koregaon Park and across Pune. Whether you need a two-wheeler for a day, a week, or a month, we’ve got you covered.
+            </p>
+          </div>
+          <div className="mt-10">
+            <ul className="md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-4">
+              {[
+                "Well-maintained bikes & scooties (Activa, Pulsar, Royal Enfield, and more)",
+                "Flexible rental plans (Hourly, Daily, Weekly, Monthly)",
+                "Doorstep delivery across Pune",
+                "Affordable pricing with zero deposit options",
+              ].map((feature, index) => (
+                <li key={index} className="mt-4 flex items-start lg:col-span-1">
+                  <div className="flex-shrink-0">
+                    <FaCheck className="h-6 w-6 text-green-500" />
+                  </div>
+                  <p className="ml-3 text-base text-gray-700">{feature}</p>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-8 text-lg text-gray-500">
+              Looking to rent a bike in Pune? Book with OK Bike Rental for a smooth and affordable experience.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Keywords Section */}
+      <div className="bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center">
+            <FaTags className="mx-auto h-12 w-12 text-orange-600" />
+            <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl mt-4">
+              Popular Keywords
+            </h2>
+            <p className="mt-4 text-lg leading-6 text-gray-500">
+              Explore popular keywords related to bike rentals in Pune.
+            </p>
+          </div>
+          <div className="mt-10 flex flex-wrap justify-center gap-2">
+            {[
+              "Bike rental in Koregaon Park Pune",
+              "Bike on rent in Pune",
+              "Two-wheeler rental Pune",
+              "Scooty on rent in Pune",
+              "Activa for rent in Koregaon Park",
+              "Best bike rental service in Pune",
+              "Pune bike hire service",
+              "Affordable bike rental Pune",
+              "Rent a bike in Pune for a day",
+              "Monthly bike rental Pune",
+              "bike rental near Osho Ashram Pune",
+              "scooty hire near Phoenix Mall Pune",
+              "bike rental in Viman Nagar Pune",
+              "scooty on rent in Kalyani Nagar Pune",
+              "bike rental near Koregaon Park",
+              "scooty rental near Magarpatta City",
+              "two-wheeler rental in Hadapsar Pune",
+              "activa for rent in Baner Pune",
+              "scooty on rent in Hinjewadi Pune",
+              "rent a bike near Pune Railway Station",
+              "best bike rental service in Koregaon Park",
+              "bike rental for tourists in Pune",
+              "scooty on rent for college students Pune",
+              "cheap bike rental in Pune City",
+              "daily bike rental near Camp Pune",
+              "hourly bike rental near Swargate Pune",
+              "weekend bike rental in Pune",
+              "activa for rent near Pune Airport",
+              "long term bike rental in Kharadi Pune",
+              "scooty rental in FC Road Pune",
+            ].map((keyword, index) => (
+              <span key={index} className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium leading-5 bg-white text-gray-700 border border-gray-200 hover:bg-gray-50">
+                {keyword}
+              </span>
             ))}
           </div>
         </div>
