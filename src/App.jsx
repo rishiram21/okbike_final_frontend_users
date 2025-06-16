@@ -22,6 +22,7 @@ import AboutUs from "./pages/Aboutus";
 import Faq from "./pages/Faq";
 import RefundPolicy from "./pages/RefundPolicy";
 import ReturnPolicy from "./pages/ReturnPolicy";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 // Wrapper to conditionally render the Navbar
 const ConditionalNavbar = ({ children }) => {
@@ -83,6 +84,7 @@ const App = () => {
               <Route path="/faq" element={<Faq />} />
               <Route path="/refund" element={<RefundPolicy />} />
               <Route path="/return" element={<ReturnPolicy />} />
+              <Route path="/privacy" element={<PrivacyPolicy />} />
               <Route path="/contactus" element={<ContactUs />} />
 
 

@@ -50,6 +50,8 @@ const Footer = () => {
                 { name: "FAQs", href: "/faq" },
                 { name: "Refund Policy", href: "/refund" },
                 { name: "Return Policy", href: "/return" },
+                { name: "Privacy Policy", href: "/privacy" },
+
                 
               ].map((link) => (
                 <li key={link.name}>
@@ -197,6 +199,7 @@ const Footer = () => {
                     { name: "FAQs", href: "/faq" },
                     { name: "Refund Policy", href: "/refund" },
                     { name: "Return Policy", href: "/return" },
+                    { name: "Privacy Policy", href: "/privacy" },
                     
 
                   ].map((link) => (

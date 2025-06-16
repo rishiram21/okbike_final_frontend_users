@@ -498,6 +498,7 @@ const Navbar = () => {
     "/terms",
     "/refund",
     "/return",
+    "/privacy",
     "/about",
     "/login",
     "/register",
