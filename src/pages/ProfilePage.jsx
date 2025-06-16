@@ -28,7 +28,6 @@ const ProfilePage = () => {
   });
   const navigate = useNavigate();
 
-
   useEffect(() => {
     const token = localStorage.getItem("jwtToken");
     console.log("Token from localStorage:", token);
@@ -37,8 +36,6 @@ const ProfilePage = () => {
       navigate("/login");
       return;
     }
-
-
 
     const fetchUserProfile = async () => {
       try {
@@ -176,6 +173,38 @@ const ProfilePage = () => {
     }
   };
 
+  const handleDeleteAccount = async () => {
+    const token = localStorage.getItem("jwtToken");
+    if (!token) {
+      navigate("/login");
+      return;
+    }
+
+    if (window.confirm("Are you sure you want to delete your account? This action cannot be undone.")) {
+      try {
+        const response = await fetch(`${import.meta.env.VITE_BASE_URL}/delete-user/${userData.phoneNumber}`, {
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        });
+
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(errorData.message || "Failed to delete account");
+        }
+
+        toast.success("Account deleted successfully!");
+        localStorage.removeItem("jwtToken");
+        navigate("/login");
+      } catch (error) {
+        console.error("Error deleting account:", error);
+        toast.error(error.message || "Failed to delete account. Please try again.");
+      }
+    }
+  };
+
   // Check if all documents are approved
   const areAllDocumentsApproved = () => {
     return (
@@ -242,7 +271,12 @@ const ProfilePage = () => {
                   <h3 className="text-2xl font-bold text-gray-800 mb-2 md:mb-0">
                     {userData?.name || "Your Name"}
                   </h3>
-
+                  <button
+                    className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+                    onClick={handleDeleteAccount}
+                  >
+                    Delete Account
+                  </button>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -251,15 +285,7 @@ const ProfilePage = () => {
                     label="Phone Number"
                     value={userData?.phoneNumber}
                   />
-
-                  {/* <ProfileDetail
-                    icon={<FaEnvelope className="text-lg" />}
-                    label="Email Address"
-                    value={userData?.email || "Add your email"}
-                  /> */}
-
                 </div>
-
               </div>
             </motion.div>
 
