@@ -349,7 +349,7 @@ const PrivacyPolicy = () => {
               <div className="text-center">
                 <h4 className="text-xl font-semibold mb-4">Contact Information</h4>
                 <div className="space-y-3">
-                  <div className="flex items-center justify-center space-x-2 bg-white bg-opacity-20 rounded-lg px-4 py-2 inline-flex">
+                  <div className="flex items-center justify-center space-x-2 bg-white bg-opacity-20 rounded-lg px-4 py-2">
                     <Mail className="w-5 h-5" />
                     <a 
                       href="mailto:okloadexpress11@gmail.com" 
