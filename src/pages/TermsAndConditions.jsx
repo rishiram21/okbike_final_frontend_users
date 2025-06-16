@@ -316,14 +316,21 @@ const TermsAndConditions = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="tel:+919876543210"
+              href="tel:+91 7767060670"
               className="bg-white text-orange-600 px-6 py-3 rounded-xl font-semibold hover:bg-orange-50 transition-colors duration-200 flex items-center justify-center"
             >
               <Phone className="w-5 h-5 mr-2" />
-              Call: +91 98765 43210
+              Call: +91 7767060670
             </a>
             <a
-              href="mailto:support@ridenow.in"
+              href="tel:+91 9112412191"
+              className="bg-white text-orange-600 px-6 py-3 rounded-xl font-semibold hover:bg-orange-50 transition-colors duration-200 flex items-center justify-center"
+            >
+              <Phone className="w-5 h-5 mr-2" />
+              Call: +91 9112412191
+            </a>
+            <a
+              href="mailto:okloadexpress11@gmail.com"
               className="bg-white text-orange-600 px-6 py-3 rounded-xl font-semibold hover:bg-orange-50 transition-colors duration-200 flex items-center justify-center"
             >
               <Mail className="w-5 h-5 mr-2" />

@@ -496,6 +496,8 @@ const Navbar = () => {
     "/checkout",
     "/faq",
     "/terms",
+    "/refund",
+    "/return",
     "/about",
     "/login",
     "/register",

@@ -20,6 +20,8 @@ import NotFoundPage from "./pages/NotFoundPage";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import AboutUs from "./pages/Aboutus";
 import Faq from "./pages/Faq";
+import RefundPolicy from "./pages/RefundPolicy";
+import ReturnPolicy from "./pages/ReturnPolicy";
 
 // Wrapper to conditionally render the Navbar
 const ConditionalNavbar = ({ children }) => {
@@ -43,12 +45,13 @@ const WhatsAppIcon = () => {
       href="https://wa.me/1234567890"
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition duration-300"
+      className="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition duration-300 z-50"
     >
       <FaWhatsapp className="text-2xl" />
     </a>
   );
 };
+
 
 
 // Footer Wrapper Component – Only shows on /bike-list
@@ -78,6 +81,10 @@ const App = () => {
               <Route path="/terms" element={<TermsAndConditions />} />
               <Route path="/about" element={<AboutUs />} />
               <Route path="/faq" element={<Faq />} />
+              <Route path="/refund" element={<RefundPolicy />} />
+              <Route path="/return" element={<ReturnPolicy />} />
+              <Route path="/contactus" element={<ContactUs />} />
+
 
 
 
@@ -98,7 +105,6 @@ const App = () => {
                 }
               />
 
-              <Route path="/contactus" element={<ContactUs />} />
 
               <Route path="*" element={<NotFoundPage />} />
               

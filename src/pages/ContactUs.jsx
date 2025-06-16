@@ -65,7 +65,7 @@ const ContactUs = () => {
               <Phone className="w-8 h-8 text-orange-600" />
             </div>
             <h3 className="font-bold text-gray-800 mb-2">Call Us Now</h3>
-            <p className="text-orange-600 font-semibold">+91 98765 43210</p>
+            <p className="text-orange-600 font-semibold">+91 7767060670 / +91 9112412191 </p>
           </div>
           
           <div className="bg-white rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300">
@@ -83,8 +83,8 @@ const ContactUs = () => {
               <Mail className="w-8 h-8 text-orange-600" />
             </div>
             <h3 className="font-bold text-gray-800 mb-2">Email Support</h3>
-            <a href="mailto:support@ridenow.in" className="text-orange-600 font-semibold hover:underline">
-              support@ridenow.in
+            <a href="mailto:okloadexpress11@gmail.com" className="text-orange-600 font-semibold hover:underline">
+              okloadexpress11@gmail.com
             </a>
           </div>
         </div>
@@ -103,8 +103,9 @@ const ContactUs = () => {
 
             <ContactCard icon={Phone} title="Phone Numbers">
               <div className="space-y-2">
-                <p><strong>Customer Support:</strong> <a href="tel:+919876543210" className="text-orange-600 hover:underline">+91 98765 43210</a></p>
-                <p><strong>Business Inquiries:</strong> <a href="tel:+918765432109" className="text-orange-600 hover:underline">+91 87654 32109</a></p>
+                <p><strong> Support:</strong> +91 7767060670 / 
+                    +91 9112412191
+                </p>
               </div>
             </ContactCard>
 
@@ -118,8 +119,8 @@ const ContactUs = () => {
 
             <ContactCard icon={Mail} title="Email Contacts">
               <div className="space-y-2">
-                <p><strong>General Queries:</strong> <a href="mailto:support@ridenow.in" className="text-orange-600 hover:underline">support@ridenow.in</a></p>
-                <p><strong>Partnerships:</strong> <a href="mailto:business@ridenow.in" className="text-orange-600 hover:underline">business@ridenow.in</a></p>
+                <p><strong>General Queries:</strong> <a href="mailto:okloadexpress11@gmail.com" className="text-orange-600 hover:underline">okloadexpress11@gmail.com</a></p>
+                
               </div>
             </ContactCard>
 

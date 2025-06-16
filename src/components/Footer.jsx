@@ -48,6 +48,9 @@ const Footer = () => {
                 { name: "Contact Us", href: "/contactus" },
                 { name: "Terms & Conditions", href: "/terms" },
                 { name: "FAQs", href: "/faq" },
+                { name: "Refund Policy", href: "/refund" },
+                { name: "Return Policy", href: "/return" },
+                
               ].map((link) => (
                 <li key={link.name}>
                   <a
@@ -192,6 +195,10 @@ const Footer = () => {
                     { name: "Contact Us", href: "/contactus" },
                     { name: "Terms & Conditions", href: "/terms" },
                     { name: "FAQs", href: "/faq" },
+                    { name: "Refund Policy", href: "/refund" },
+                    { name: "Return Policy", href: "/return" },
+                    
+
                   ].map((link) => (
                     <li key={link.name}>
                       <a
