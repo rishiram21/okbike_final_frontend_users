@@ -52,8 +52,8 @@ const HomePage = () => {
 
     setFormData((prevData) => ({
       ...prevData,
-      location: null,
-      cityId: null,
+      location: "Pune",
+      cityId: 1,
     }));
 
     const loadSequence = () => {
