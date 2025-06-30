@@ -50,8 +50,9 @@ const Footer = () => {
                 { name: "FAQs", href: "/faq" },
                 { name: "Refund Policy", href: "/refund" },
                 { name: "Return Policy", href: "/return" },
-                { name: "Privacy Policy", href: "/privacy" },
-
+                { name: "Privacy Policy", href: "https://www.freeprivacypolicy.com/live/37d8e2d7-d817-4ede-b03b-bb37467f3c25" },
+                // { name: "Privacy Policy", href: "/privacy" },
+                
                 
               ].map((link) => (
                 <li key={link.name}>
