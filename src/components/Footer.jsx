@@ -93,10 +93,10 @@ const Footer = () => {
               <div className="flex items-center gap-3">
                 <FaEnvelope className="text-orange-400 flex-shrink-0" size={16} />
                 <a
-                  href="mailto:okloadexpress11@gmail.com"
+                  href="mailto:okbikerentals.com"
                   className="text-gray-300 text-sm hover:text-orange-400 transition-colors"
                 >
-                  okloadexpress11@gmail.com
+                  okbikerentals@gmail.com
                 </a>
               </div>
             </div>
@@ -115,12 +115,12 @@ const Footer = () => {
                   label: "Facebook",
                   color: "hover:bg-blue-600"
                 },
-                { 
-                  icon: FaYoutube, 
-                  href: "#",
-                  label: "YouTube",
-                  color: "hover:bg-red-600"
-                },
+                // { 
+                //   icon: FaYoutube, 
+                //   href: "#",
+                //   label: "YouTube",
+                //   color: "hover:bg-red-600"
+                // },
                 { 
                   icon: FaInstagram, 
                   href: "https://www.instagram.com/okbikerentals?igsh=OTQyM3Y2cDMweGY3",
@@ -129,7 +129,7 @@ const Footer = () => {
                 },
                 { 
                   icon: FaLinkedinIn, 
-                  href: "#",
+                  href: "https://www.linkedin.com/company/ok-bike-rentals",
                   label: "LinkedIn",
                   color: "hover:bg-blue-700"
                 },

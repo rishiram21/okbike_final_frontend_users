@@ -73,7 +73,7 @@ const ContactUs = () => {
               <MessageCircle className="w-8 h-8 text-orange-600" />
             </div>
             <h3 className="font-bold text-gray-800 mb-2">WhatsApp</h3>
-            <a href="https://wa.me/919876543210" className="text-orange-600 font-semibold hover:underline">
+            <a href="https://wa.me/9112412191" className="text-orange-600 font-semibold hover:underline">
               Chat with us
             </a>
           </div>
@@ -83,8 +83,8 @@ const ContactUs = () => {
               <Mail className="w-8 h-8 text-orange-600" />
             </div>
             <h3 className="font-bold text-gray-800 mb-2">Email Support</h3>
-            <a href="mailto:okloadexpress11@gmail.com" className="text-orange-600 font-semibold hover:underline">
-              okloadexpress11@gmail.com
+            <a href="mailto:okbikerentals@gmail.com" className="text-orange-600 font-semibold hover:underline">
+              okbikerentals@gmail.com
             </a>
           </div>
         </div>
@@ -111,7 +111,7 @@ const ContactUs = () => {
 
             <ContactCard icon={MessageCircle} title="WhatsApp Support">
               <p>Available 8 AM to 10 PM, All Days</p>
-              <a href="https://wa.me/919876543210" className="inline-flex items-center mt-2 text-orange-600 hover:text-orange-700 font-semibold">
+              <a href="https://wa.me/9112412191" className="inline-flex items-center mt-2 text-orange-600 hover:text-orange-700 font-semibold">
                 <MessageCircle className="w-4 h-4 mr-1" />
                 Start WhatsApp Chat
               </a>
@@ -119,7 +119,7 @@ const ContactUs = () => {
 
             <ContactCard icon={Mail} title="Email Contacts">
               <div className="space-y-2">
-                <p><strong>General Queries:</strong> <a href="mailto:okloadexpress11@gmail.com" className="text-orange-600 hover:underline">okloadexpress11@gmail.com</a></p>
+                <p><strong>General Queries:</strong> <a href="mailto:okbikerentals@gmail.com" className="text-orange-600 hover:underline">okbikerentals@gmail.com</a></p>
                 
               </div>
             </ContactCard>

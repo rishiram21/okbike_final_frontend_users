@@ -235,8 +235,8 @@ const totalAmount =
               <h2 className="text-lg font-bold tracking-wide uppercase mb-1">
                 Invoice
               </h2>
-              <div className="bg-orange-700 px-2 py-1 rounded inline-block">
-                <p className="text-orange-100 text-xs font-medium">
+              <div className="bg-white px-2 py-1 rounded inline-block">
+                <p className="text-black text-xs font-medium">
                   OKB-{booking?.bookingId}
                 </p>
               </div>
@@ -514,7 +514,7 @@ const totalAmount =
                     d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                   />
                 </svg>
-                <span className="text-xs">okloadexpress11@gmail.com</span>
+                <span className="text-xs">okbikerentals@gmail.com</span>
               </div>
               <div className="flex items-center">
                 <svg

@@ -42,7 +42,7 @@ const Aboutus = () => {
             </div>
             <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 border border-gray-100">
               <p className="text-lg md:text-xl text-gray-700 leading-relaxed text-center">
-                Founded in [Year], OK Bikes was born out of the frustration of limited, expensive, and unreliable rental options. What started with just a few bikes in Koregaon Park has now grown into a city-wide service helping thousands of users move freely every day.
+                Founded in 2024, OK Bikes was born out of the frustration of limited, expensive, and unreliable rental options. What started with just a few bikes in Koregaon Park has now grown into a city-wide service helping thousands of users move freely every day.
               </p>
             </div>
           </div>
