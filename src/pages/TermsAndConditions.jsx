@@ -315,13 +315,13 @@ const TermsAndConditions = () => {
             If you have any questions about our Terms & Conditions, please don't hesitate to contact us.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
+            {/* <a
               href="tel:+91 7767060670"
               className="bg-white text-orange-600 px-6 py-3 rounded-xl font-semibold hover:bg-orange-50 transition-colors duration-200 flex items-center justify-center"
             >
               <Phone className="w-5 h-5 mr-2" />
               Call: +91 7767060670
-            </a>
+            </a> */}
             <a
               href="tel:+91 9112412191"
               className="bg-white text-orange-600 px-6 py-3 rounded-xl font-semibold hover:bg-orange-50 transition-colors duration-200 flex items-center justify-center"

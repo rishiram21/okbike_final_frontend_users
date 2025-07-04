@@ -82,9 +82,9 @@ const Footer = () => {
               <div className="flex items-center gap-3">
                 <FaPhone className="text-orange-400 flex-shrink-0" size={16} />
                 <div className="text-gray-300 text-sm">
-                  <a href="tel:+917767060670" className="hover:text-orange-400 transition-colors block">
+                  {/* <a href="tel:+917767060670" className="hover:text-orange-400 transition-colors block">
                     +91 7767060670
-                  </a>
+                  </a> */}
                   <a href="tel:+919112412191" className="hover:text-orange-400 transition-colors block">
                     +91 9112412191
                   </a>
@@ -242,9 +242,9 @@ const Footer = () => {
                 <div className="flex items-center gap-3">
                   <FaPhone className="text-orange-400 flex-shrink-0" size={16} />
                   <div className="text-gray-300 text-sm">
-                    <a href="tel:+917767060670" className="hover:text-orange-400 transition-colors block">
+                    {/* <a href="tel:+917767060670" className="hover:text-orange-400 transition-colors block">
                       +91 7767060670
-                    </a>
+                    </a> */}
                     <a href="tel:+919112412191" className="hover:text-orange-400 transition-colors block">
                       +91 9112412191
                     </a>

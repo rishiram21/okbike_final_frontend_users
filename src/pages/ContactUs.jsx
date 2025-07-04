@@ -65,7 +65,7 @@ const ContactUs = () => {
               <Phone className="w-8 h-8 text-orange-600" />
             </div>
             <h3 className="font-bold text-gray-800 mb-2">Call Us Now</h3>
-            <p className="text-orange-600 font-semibold">+91 7767060670 / +91 9112412191 </p>
+            <p className="text-orange-600 font-semibold"> +91 9112412191 </p>
           </div>
           
           <div className="bg-white rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300">
@@ -103,7 +103,7 @@ const ContactUs = () => {
 
             <ContactCard icon={Phone} title="Phone Numbers">
               <div className="space-y-2">
-                <p><strong> Support:</strong> +91 7767060670 / 
+                <p><strong> Support:</strong> 
                     +91 9112412191
                 </p>
               </div>
