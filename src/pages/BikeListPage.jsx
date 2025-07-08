@@ -60,6 +60,8 @@ const BikeListPage = () => {
   const filterRef = useRef(null);
   const bikesPerPage = 8;
 
+  console.log(bikes);
+
   // Fetch bikes based on form data
   useEffect(() => {
     if (formData) {
@@ -464,9 +466,14 @@ const BikeListPage = () => {
 
                   {/* Content container */}
                   <div className="p-4 flex-grow flex flex-col">
-                    <h3 className="text-lg font-semibold text-gray-800 mb-1">
-                      {bike.model}
-                    </h3>
+                    <div className="flex justify-between items-center mb-1">
+  <h3 className="text-lg font-semibold text-gray-800">
+    {bike.model}
+  </h3>
+  <h5 className="text-sm font-semibold text-gray-900">
+    {bike.vehicleRegistrationNumber}
+  </h5>
+</div>
 
                     <div className="flex items-center text-xs text-gray-500 mb-3">
                       <span className="bg-gray-100 px-2 py-1 rounded-full">{bike.categoryName}</span>
