@@ -129,7 +129,7 @@ const RegistrationPage = () => {
       await fetchUserDetails(mobile);
 
       setTimeout(() => {
-        navigate("/login");
+        navigate("/profile");
       }, 2000);
     } catch (err) {
       setError(err.message);
