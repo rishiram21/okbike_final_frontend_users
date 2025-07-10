@@ -46,6 +46,21 @@ const OrderCard = React.memo(({ order, handleStartTrip, handleEndTrip, handleCan
           <p className="font-medium">Store Address: {order.store.address || "N/A"}</p>
           <p className="font-medium">Store Mobile Number: {order.store.phone || "N/A"}</p>
           <p className="font-medium">Address Type: {order.booking.addressType || "N/A"}</p>
+          {/* <p className="font-medium">Address Location: {order.booking.deliveryLocation || "N/A"}</p> */}
+          {order.booking.deliveryLocation ? (() => {
+  const location = JSON.parse(order.booking.deliveryLocation);
+  return (
+    <div className="font-medium space-y-1">
+      <p>📍 <strong>Address:</strong> {location.fullAddress}</p>
+      <p>🏥 <strong>Nearby:</strong> {location.nearby}</p>
+      <p>📮 <strong>Pin Code:</strong> {location.pinCode}</p>
+    </div>
+  );
+})() : (
+  <p className="font-medium">Address Location: N/A</p>
+)}
+
+           
         </div>
         <div className="flex justify-between items-center">
           <div className="flex items-start space-x-3">
@@ -171,6 +186,8 @@ const OrdersPage = () => {
   const [orderLimit, setOrderLimit] = useState(1);
   const [userData, setUserData] = useState(null);
   const { checkToken } = useAuth();
+  // const parsedAddress = JSON.parse(order.booking.deliveryLocation);
+
 
   // For debugging:
   const tokenStatus = checkToken();
