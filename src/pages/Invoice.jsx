@@ -231,16 +231,23 @@ const totalAmount =
                 <p className="text-orange-100 text-xs">Ride with confidence</p>
               </div>
             </div>
-            <div className="text-right">
-              <h2 className="text-lg font-bold tracking-wide uppercase mb-1">
-                Invoice
-              </h2>
-              <div className="bg-white px-2 py-1 rounded inline-block">
-                <p className="text-black text-xs font-medium">
-                  OKB-{booking?.bookingId}
-                </p>
-              </div>
-            </div>
+            <div className="text-right space-y-2 bg-white p-6 rounded-md shadow-md border border-gray-200">
+  <h2 className="text-2xl font-extrabold tracking-widest text-indigo-700 uppercase">
+    Invoice
+  </h2>
+
+  <div className="text-base">
+    <p className="text-gray-700">
+      <span className="font-semibold text-gray-900">Invoice No:</span> OKB-{booking.bookingId}
+    </p>
+  </div>
+
+  <div className="text-base">
+    <p className="text-gray-700">
+      <span className="font-semibold text-gray-900">GST Number:</span> 27AAECO0691E1ZJ
+    </p>
+  </div>
+</div>
           </div>
         </div>
 

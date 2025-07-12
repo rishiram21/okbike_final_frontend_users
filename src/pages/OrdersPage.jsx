@@ -434,26 +434,79 @@ const OrdersPage = () => {
     );
   };
 
-  const handleImageUpload = (side, file) => {
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      const base64Image = reader.result;
+  // const handleImageUpload = (side, file) => {
+  //   const reader = new FileReader();
+  //   reader.onloadend = () => {
+  //     const base64Image = reader.result;
 
-      setImages((prevImages) => {
-        if (uploadType === "start") {
-          return { ...prevImages, [side]: base64Image };
-        } else if (uploadType === "end") {
-          return { ...prevImages, [`${side}_end`]: base64Image };
-        } else {
-          return prevImages;
-        }
-      });
+  //     setImages((prevImages) => {
+  //       if (uploadType === "start") {
+  //         return { ...prevImages, [side]: base64Image };
+  //       } else if (uploadType === "end") {
+  //         return { ...prevImages, [`${side}_end`]: base64Image };
+  //       } else {
+  //         return prevImages;
+  //       }
+  //     });
+  //   };
+
+  //   if (file) {
+  //     reader.readAsDataURL(file);
+  //   }
+  // };
+
+  const compressImage = (file, maxWidth = 800, quality = 0.6) => {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+
+    reader.onload = (event) => {
+      const img = new Image();
+      img.onload = () => {
+        const canvas = document.createElement("canvas");
+
+        const scale = Math.min(maxWidth / img.width, 1);
+        const width = img.width * scale;
+        const height = img.height * scale;
+
+        canvas.width = width;
+        canvas.height = height;
+
+        const ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, 0, width, height);
+
+        const compressedBase64 = canvas.toDataURL("image/jpeg", quality);
+        resolve(compressedBase64);
+      };
+      img.onerror = reject;
+      img.src = event.target.result;
     };
 
-    if (file) {
-      reader.readAsDataURL(file);
-    }
-  };
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+};
+
+
+  const handleImageUpload = async (side, file) => {
+  if (!file || !file.type.startsWith("image/")) return;
+
+  try {
+    const base64Image = await compressImage(file, 800, 0.6); // width, quality
+
+    setImages((prevImages) => {
+      if (uploadType === "start") {
+        return { ...prevImages, [side]: base64Image };
+      } else if (uploadType === "end") {
+        return { ...prevImages, [`${side}_end`]: base64Image };
+      } else {
+        return prevImages;
+      }
+    });
+  } catch (error) {
+    console.error("Error compressing image:", error);
+  }
+};
+
 
   const handleStartTripSubmit = async () => {
     const { front, left, right, back } = images;
