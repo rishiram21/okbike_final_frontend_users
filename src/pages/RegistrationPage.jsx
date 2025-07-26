@@ -20,12 +20,58 @@ const RegistrationPage = () => {
 
   const navigate = useNavigate();
 
-  const handleFileChange = (e, setter) => {
-    const file = e.target.files[0];
-    if (file) {
-      convertToBase64(file, setter);
+  const compressImage = (file, maxWidth = 800, quality = 0.6) => {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+
+    reader.onload = (event) => {
+      const img = new window.Image();
+      img.onload = () => {
+        const canvas = document.createElement("canvas");
+        const scale = Math.min(maxWidth / img.width, 1);
+        const width = img.width * scale;
+        const height = img.height * scale;
+
+        canvas.width = width;
+        canvas.height = height;
+
+        const ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, 0, width, height);
+
+        const compressedBase64 = canvas.toDataURL("image/jpeg", quality).split(",")[1]; // Only base64 part
+        resolve(compressedBase64);
+      };
+      img.onerror = reject;
+      img.src = event.target.result;
+    };
+
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+};
+
+
+const handleFileChange = async (e, setter) => {
+  const file = e.target.files[0];
+  if (file && file.type.startsWith("image/")) {
+    try {
+      const compressedBase64 = await compressImage(file, 800, 0.6);
+      setter(compressedBase64);
+    } catch (err) {
+      setError("Image compression failed.");
+      console.error("Compression error:", err);
     }
-  };
+  }
+};
+
+
+
+  // const handleFileChange = (e, setter) => {
+  //   const file = e.target.files[0];
+  //   if (file) {
+  //     convertToBase64(file, setter);
+  //   }
+  // };
 
   const convertToBase64 = (file, setter) => {
     const reader = new FileReader();
@@ -366,7 +412,7 @@ const RegistrationPage = () => {
               onKeyPress={(e) => !otpSent && handleKeyPress(e, sendOTP)}
             />
 
-            <div className="mb-2">
+            {/* <div className="mb-2">
               <label className="block text-sm font-medium text-gray-700 mb-1">Aadhar Front Side</label>
               <input 
                 type="file" 
@@ -394,7 +440,38 @@ const RegistrationPage = () => {
                 className="border p-2 w-full" 
                 onChange={(e) => handleFileChange(e, setDlFront)} 
               />
-            </div>
+            </div> */}
+
+
+<div className="mb-2">
+  <label className="block text-sm font-medium text-gray-700 mb-1">Aadhar Front Side</label>
+  <input 
+    type="file" 
+    accept="image/*" 
+    className="border p-2 w-full" 
+    onChange={(e) => handleFileChange(e, setAadharFront)} 
+  />
+</div>
+
+<div className="mb-2">
+  <label className="block text-sm font-medium text-gray-700 mb-1">Aadhar Back Side</label>
+  <input 
+    type="file" 
+    accept="image/*" 
+    className="border p-2 w-full" 
+    onChange={(e) => handleFileChange(e, setAadharBack)} 
+  />
+</div>
+
+<div className="mb-4">
+  <label className="block text-sm font-medium text-gray-700 mb-1">Driving License</label>
+  <input 
+    type="file" 
+    accept="image/*" 
+    className="border p-2 w-full" 
+    onChange={(e) => handleFileChange(e, setDlFront)} 
+  />
+</div>
 
             {!otpSent ? (
               <button

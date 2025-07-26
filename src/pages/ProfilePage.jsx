@@ -173,6 +173,8 @@ const ProfilePage = () => {
     }
   };
 
+
+  console.log(userData);
   const handleDeleteAccount = async () => {
     const token = localStorage.getItem("jwtToken");
     if (!token) {
@@ -182,7 +184,7 @@ const ProfilePage = () => {
 
     if (window.confirm("Are you sure you want to delete your account? This action cannot be undone.")) {
       try {
-        const response = await fetch(`${import.meta.env.VITE_BASE_URL}/delete-user/${userData.phoneNumber}`, {
+        const response = await fetch(`${import.meta.env.VITE_BASE_URL}/delete-user/${userData.id}`, {
           method: "DELETE",
           headers: {
             Authorization: `Bearer ${token}`,

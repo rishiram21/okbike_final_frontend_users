@@ -6,6 +6,8 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useGlobalState } from "../context/GlobalStateContext";
 import { useAuth } from "../context/AuthContext";
+import { useRef } from "react";
+
 
 const OrderCard = React.memo(({ order, handleStartTrip, handleEndTrip, handleCancelBooking, handleViewInvoice }) => {
   const formatDate = (dateString) => {
@@ -187,6 +189,7 @@ const OrdersPage = () => {
   const [userData, setUserData] = useState(null);
   const { checkToken } = useAuth();
   // const parsedAddress = JSON.parse(order.booking.deliveryLocation);
+  const hasFetchedRef = useRef(false);
 
 
   // For debugging:
@@ -204,7 +207,44 @@ const OrdersPage = () => {
     }
   }, [token]);
 
-  useEffect(() => {
+  // useEffect(() => {
+  //   const fetchUserData = async () => {
+  //     try {
+  //       const token = localStorage.getItem("jwtToken");
+  //       if (!token) {
+  //         navigate("/login");
+  //         return;
+  //       }
+
+  //       const response = await fetch(`${import.meta.env.VITE_BASE_URL}/users/profile`, {
+  //         method: "GET",
+  //         headers: {
+  //           Authorization: `Bearer ${token}`,
+  //           "Content-Type": "application/json",
+  //         },
+  //       });
+
+  //       if (!response.ok) {
+  //         throw new Error("Failed to fetch user profile");
+  //       }
+
+  //       const data = await response.json();
+  //       setUserData(data);
+  //     } catch (error) {
+  //       console.error("Error fetching user data:", error);
+  //       navigate("/login");
+  //     }
+  //   };
+
+  //   fetchUserData();
+  // }, [navigate]);
+
+
+ useEffect(() => {
+    // Guard: Only run once
+    if (hasFetchedRef.current) return;
+    hasFetchedRef.current = true;
+
     const fetchUserData = async () => {
       try {
         const token = localStorage.getItem("jwtToken");
@@ -234,51 +274,47 @@ const OrdersPage = () => {
     };
 
     fetchUserData();
-  }, [navigate]);
+  }, []); // ✅ remove navigate from deps since we're guarding internally
+
 
   const fetchOrders = useCallback(async () => {
-    try {
-      setLoading(true);
-      const token = localStorage.getItem("jwtToken") || sessionStorage.getItem("jwtToken");
+  try {
+    setLoading(true);
+    const token = localStorage.getItem("jwtToken") || sessionStorage.getItem("jwtToken");
 
-      if (!token) {
-        setError("User not authenticated. Please log in.");
-        setLoading(false);
-        return;
-      }
-
-      const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/booking/user/bookings`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-
-      if (response.data && response.data.length > 0) {
-        const sortedOrders = response.data.sort((a, b) => b.bookingId - a.bookingId);
-        const [recentOrder, ...remainingOrders] = sortedOrders;
-
-        const combinedOrders = await Promise.all(sortedOrders.map(async (order) => {
-          const combinedResponse = await axios.get(`${import.meta.env.VITE_BASE_URL}/booking/combined/${order.bookingId}`, {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          });
-          return combinedResponse.data;
-        }));
-
-        setMostRecentOrder(combinedOrders[0]);
-        setOtherOrders(combinedOrders.slice(1));
-        setDisplayedOrders(combinedOrders.slice(1, orderLimit + 1));
-      } else {
-        setError("No orders found for this user.");
-      }
-    } catch (err) {
-      console.error("Error fetching orders:", err);
-      setError("Failed to fetch order history. Please try again.");
-    } finally {
+    if (!token) {
+      setError("User not authenticated. Please log in.");
       setLoading(false);
+      return;
     }
-  }, [orderLimit]);
+
+    const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/booking/user/bookings`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    if (response.data && Array.isArray(response.data) && response.data.length > 0) {
+      // Sort by bookingId descending
+      const sortedOrders = response.data.sort((a, b) => b.booking.bookingId - a.booking.bookingId);
+
+      // Separate recent and remaining orders
+      const [recentOrder, ...remainingOrders] = sortedOrders;
+
+      setMostRecentOrder(recentOrder);
+      setOtherOrders(remainingOrders);
+      setDisplayedOrders(remainingOrders.slice(0, orderLimit));
+    } else {
+      setError("No orders found for this user.");
+    }
+  } catch (err) {
+    console.error("Error fetching orders:", err);
+    setError("Failed to fetch order history. Please try again.");
+  } finally {
+    setLoading(false);
+  }
+}, [orderLimit]);
+
 
   useEffect(() => {
     fetchOrders();
