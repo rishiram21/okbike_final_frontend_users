@@ -222,6 +222,70 @@ const totalAmount =
       </button>
 
       <div id="invoice-container" className="relative">
+
+
+        {/* Watermark */}
+        <div className="watermark"></div>
+
+        {/* Add print-specific styles */}
+        <style jsx>{`
+          .watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+
+          .watermark::before {
+            content: "OkBike";
+            color: rgba(0, 0, 0, 0.1);
+            font-size: 6rem;
+            font-weight: bold;
+            text-transform: uppercase;
+          }
+
+          @media print {
+            @page {
+              margin: 0.5in;
+              size: A4;
+            }
+
+            body {
+              -webkit-print-color-adjust: exact;
+              color-adjust: exact;
+            }
+
+            /* Hide everything except the invoice */
+            body * {
+              visibility: hidden;
+            }
+
+            #invoice-container,
+            #invoice-container * {
+              visibility: visible;
+            }
+
+            #invoice-container {
+              position: absolute;
+              left: 0;
+              top: 0;
+              width: 100% !important;
+              max-width: none !important;
+              margin: 0 !important;
+              box-shadow: none !important;
+              border: none !important;
+              border-radius: 0 !important;
+            }
+          }
+        `}</style>
+        
         <div className="bg-gradient-to-r from-orange-600 to-orange-600 text-white p-4 rounded-t-lg">
           <div className="flex justify-between items-start">
             <div className="flex items-center space-x-2">
